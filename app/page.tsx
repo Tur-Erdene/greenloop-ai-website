@@ -57,23 +57,23 @@ export default function Home() {
         <meta name="description" content="Монголын анхны AI-driven дахин боловсруулалтын систем" />
       </Head>
 
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-slate-900">
         {/* Header / Navigation */}
-        <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
+        <header className="bg-slate-900/80 backdrop-blur border-b border-slate-700 sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center">
-                <span className="text-2xl font-bold text-green-700">🌿 GreenLoop AI</span>
+                <span className="text-2xl font-bold text-emerald-400">🌿 GreenLoop AI</span>
               </div>
               <nav className="hidden md:flex space-x-8">
-                <a href="#calculator" className="text-gray-600 hover:text-green-600 transition">Тооцоолуур</a>
-                <a href="#process" className="text-gray-600 hover:text-green-600 transition">Процесс</a>
-                <a href="#tracking" className="text-gray-600 hover:text-green-600 transition">Tracking</a>
-                <a href="#register" className="text-gray-600 hover:text-green-600 transition">Бүртгүүлэх</a>
-              <a href="#guide" className="text-gray-600 hover:text-green-600 transition">Гарын авлага</a>
-              <a href="#leaderboard" className="text-gray-600 hover:text-green-600 transition">Тэргүүлэгчид</a>
+                <a href="#calculator" className="text-slate-300 hover:text-emerald-400 transition">Тооцоолуур</a>
+                <a href="#process" className="text-slate-300 hover:text-emerald-400 transition">Процесс</a>
+                <a href="#tracking" className="text-slate-300 hover:text-emerald-400 transition">Tracking</a>
+                <a href="#register" className="text-slate-300 hover:text-emerald-400 transition">Бүртгүүлэх</a>
+              <a href="#guide" className="text-slate-300 hover:text-emerald-400 transition">Гарын авлага</a>
+              <a href="#leaderboard" className="text-slate-300 hover:text-emerald-400 transition">Тэргүүлэгчид</a>
               </nav>
-              <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+              <button className="bg-emerald-500 text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition">
                 Бүртгүүлэх
               </button>
             </div>
@@ -81,24 +81,38 @@ export default function Home() {
         </header>
 
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-green-50 to-white py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="relative py-20 overflow-hidden">
+          {/* Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900"></div>
+          
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="mb-4">
-              <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
+              <span className="inline-block bg-emerald-500/20 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium border border-emerald-500/30">
                 🌿 Монголын анхны AI-driven дахин боловсруулалтын систем
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               🌿 Ногоон Хот
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-emerald-400 mb-2 font-medium">
+              хамтдаа бүтээе
+            </p>
+            <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
               Дахин боловсруулалтыг хялбар, урамшуулалтай, хэмжигдэхүйц болгоё
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mt-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <button className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold transition shadow-lg shadow-emerald-500/25">
+                🚀 CO₂ нөлөө тооцоолох
+              </button>
+              <button className="border border-slate-400 text-white hover:bg-slate-700 px-8 py-4 rounded-xl font-semibold transition">
+                📖 Гарын авлага
+              </button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
               {stats.map((stat, idx) => (
-                <div key={idx} className="bg-white rounded-xl shadow-lg p-6 border border-green-100">
-                  <div className="text-4xl font-bold text-green-600">{stat.value}</div>
-                  <div className="text-gray-600 mt-2">{stat.label}</div>
+                <div key={idx} className="bg-slate-800/50 backdrop-blur rounded-xl p-6 border border-slate-700">
+                  <div className="text-4xl font-bold text-emerald-400">{stat.value}</div>
+                  <div className="text-slate-300 mt-2">{stat.label}</div>
                 </div>
               ))}
             </div>
