@@ -74,7 +74,7 @@ export default function Home() {
               <a href="#leaderboard" className="text-gray-600 hover:text-green-600 transition">Тэргүүлэгчид</a>
               </nav>
               <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
-                Эхлэх
+                Бүртгүүлэх
               </button>
             </div>
           </div>
