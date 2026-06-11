@@ -69,7 +69,8 @@ export default function Home() {
                 <a href="#calculator" className="text-gray-600 hover:text-green-600 transition">Тооцоолуур</a>
                 <a href="#process" className="text-gray-600 hover:text-green-600 transition">Процесс</a>
                 <a href="#tracking" className="text-gray-600 hover:text-green-600 transition">Tracking</a>
-                <a href="#guide" className="text-gray-600 hover:text-green-600 transition">Гарын авлага</a>
+                <a href="#register" className="text-gray-600 hover:text-green-600 transition">Бүртгүүлэх</a>
+              <a href="#guide" className="text-gray-600 hover:text-green-600 transition">Гарын авлага</a>
               <a href="#leaderboard" className="text-gray-600 hover:text-green-600 transition">Тэргүүлэгчид</a>
               </nav>
               <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
@@ -425,6 +426,126 @@ export default function Home() {
                     <span>Эко түвшин 1000кг CO₂ хэмнэснээр Eco Legend болно</span>
                   </li>
                 </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Бүртгүүлэх / Register */}
+        <section id="register" className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                🚀 Эхлэх
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Бүртгүүлэх</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                GreenLoop AI-д нэгдэж, дахин боловсруулалтаа эхлүүл. CO₂ хэмнэлтээ хянаж, оноо цуглуул.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {/* Registration Form */}
+              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">📝 Шинээр бүртгүүлэх</h3>
+                <form className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Нэр</label>
+                    <input
+                      type="text"
+                      placeholder="Таны нэр"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">И-мэйл</label>
+                    <input
+                      type="email"
+                      placeholder="example@email.com"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Утас</label>
+                    <input
+                      type="tel"
+                      placeholder="+976 99-99-9999"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Хэрэглэгчийн төрөл</label>
+                    <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white">
+                      <option>🏠 Хувь хүн</option>
+                      <option>🏢 CSR Компани</option>
+                      <option>♻️ Дахин боловсруулах төв</option>
+                    </select>
+                  </div>
+                  <button
+                    type="button"
+                    className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition shadow-md"
+                  >
+                    ✅ Бүртгүүлэх
+                  </button>
+                </form>
+                <p className="text-xs text-gray-500 mt-4 text-center">
+                  Бүртгүүлснээр та манай үйлчилгээний нөхцөлийг зөвшөөрч байна.
+                </p>
+              </div>
+
+              {/* AI Advisor */}
+              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">🤖 AI Зөвлөх</h3>
+                <div className="bg-green-50 rounded-lg p-4 mb-4 border border-green-200">
+                  <p className="text-green-800 text-sm">
+                    <span className="font-semibold">🌿 Сайн байна уу!</span><br />
+                    Би GreenLoop AI-ийн экологийн зөвлөх. Дахин боловсруулалт, CO₂ хэмнэлт, тогтвортой хөгжилтэй холбоотой асуултад хариулахад бэлэн.
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-sm text-gray-600 font-medium">Санал болгох асуултууд:</p>
+                  <button className="w-full text-left px-4 py-3 bg-gray-50 rounded-lg hover:bg-green-50 hover:text-green-700 transition text-sm text-gray-700 border border-gray-200">
+                    🧴 PET лонх хэрхэн дахин боловсруулагддаг вэ?
+                  </button>
+                  <button className="w-full text-left px-4 py-3 bg-gray-50 rounded-lg hover:bg-green-50 hover:text-green-700 transition text-sm text-gray-700 border border-gray-200">
+                    📊 1 кг хуванцар хэдэн кг CO₂ хэмнэдэг вэ?
+                  </button>
+                  <button className="w-full text-left px-4 py-3 bg-gray-50 rounded-lg hover:bg-green-50 hover:text-green-700 transition text-sm text-gray-700 border border-gray-200">
+                    🏆 Eco Legend түвшинд хүрэхэд хэдэн оноо хэрэгтэй вэ?
+                  </button>
+                  <button className="w-full text-left px-4 py-3 bg-gray-50 rounded-lg hover:bg-green-50 hover:text-green-700 transition text-sm text-gray-700 border border-gray-200">
+                    🌳 Мод тарих хандив хэрхэн хийх вэ?
+                  </button>
+                </div>
+                <div className="mt-4 flex gap-2">
+                  <input
+                    type="text"
+                    placeholder="Асуултаа бичнэ үү..."
+                    className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm"
+                  />
+                  <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                    📤
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Benefits */}
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              <div className="bg-white rounded-xl p-6 text-center shadow-md border border-gray-100">
+                <div className="text-3xl mb-3">🎁</div>
+                <h4 className="font-semibold text-gray-900 mb-2">Бүртгүүлээд 100 оноо аваарай</h4>
+                <p className="text-sm text-gray-600">Шинэ хэрэглэгч бүрт 100 eco оноо бэлэглэнэ.</p>
+              </div>
+              <div className="bg-white rounded-xl p-6 text-center shadow-md border border-gray-100">
+                <div className="text-3xl mb-3">📱</div>
+                <h4 className="font-semibold text-gray-900 mb-2">Мобайл апп ирэхэд мэдэгдэл авана</h4>
+                <p className="text-sm text-gray-600">iOS болон Android апп удахгүй гарч байна.</p>
+              </div>
+              <div className="bg-white rounded-xl p-6 text-center shadow-md border border-gray-100">
+                <div className="text-3xl mb-3">🤝</div>
+                <h4 className="font-semibold text-gray-900 mb-2">Найзаа урихад хоёул оноо аваарай</h4>
+                <p className="text-sm text-gray-600">Найзаа урихад 50 оноо, найз чинь 50 оноо авна.</p>
               </div>
             </div>
           </div>
