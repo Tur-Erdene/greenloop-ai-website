@@ -69,7 +69,8 @@ export default function Home() {
                 <a href="#calculator" className="text-gray-600 hover:text-green-600 transition">Тооцоолуур</a>
                 <a href="#process" className="text-gray-600 hover:text-green-600 transition">Процесс</a>
                 <a href="#tracking" className="text-gray-600 hover:text-green-600 transition">Tracking</a>
-                <a href="#leaderboard" className="text-gray-600 hover:text-green-600 transition">Тэргүүлэгчид</a>
+                <a href="#guide" className="text-gray-600 hover:text-green-600 transition">Гарын авлага</a>
+              <a href="#leaderboard" className="text-gray-600 hover:text-green-600 transition">Тэргүүлэгчид</a>
               </nav>
               <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
                 Эхлэх
@@ -87,10 +88,11 @@ export default function Home() {
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              GreenLoop AI-тай хамт бүх дахин<br />
-              боловсруулалтыг хэмжигдэхүйц,<br />
-              хянагдахуйц, урамшуулалтай болгоё.
+              🌿 Ногоон Хот
             </h1>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Дахин боловсруулалтыг хялбар, урамшуулалтай, хэмжигдэхүйц болгоё
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mt-12">
               {stats.map((stat, idx) => (
                 <div key={idx} className="bg-white rounded-xl shadow-lg p-6 border border-green-100">
@@ -103,53 +105,95 @@ export default function Home() {
         </section>
 
         {/* CO₂ Calculator */}
-        <section id="calculator" className="py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="calculator" className="py-20 bg-green-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
+              <div className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                📊 Калькулятор
+              </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">CO₂ Тооцоолуур</h2>
-              <p className="text-gray-600">Дахин боловсруулалтын CO₂ тооцоолуур</p>
-              <p className="text-gray-500 text-sm mt-2">Материал төрөл, жингээ оруулаад хэдэн кг CO₂ хэмнэснээ хараарай</p>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Материал төрөл, жингээ оруулаад хэдэн кг CO₂ хэмнэснээ мэдэж, экологийн нөлөөгөө хар.
+              </p>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Материал төрөл</label>
-                  <select
-                    value={material}
-                    onChange={(e) => setMaterial(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                <h3 className="text-lg font-semibold text-gray-900 mb-6">🧮 Тооцоолох</h3>
+                <div className="space-y-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Материал сонгох</label>
+                    <select
+                      value={material}
+                      onChange={(e) => setMaterial(e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white"
+                    >
+                      <option value="PET">🥤 PET лонх (Plastic bottle)</option>
+                      <option value="HDPE">🧴 HDPE сав (Hard plastic)</option>
+                      <option value="Aluminum">🥫 Aluminum хөнгөн цагаан</option>
+                      <option value="Glass">🍾 Glass шил</option>
+                      <option value="Paper">📄 Paper цаас</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Жин (кг)</label>
+                    <input
+                      type="number"
+                      value={weight}
+                      onChange={(e) => setWeight(e.target.value)}
+                      placeholder="Жишээ: 2.5"
+                      step="0.1"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    />
+                    <p className="text-xs text-gray-500 mt-1">1 кг = 1000 грамм. Жишээ: 2 кг PET лонх ≈ 67 ширхэг 500мл лонх</p>
+                  </div>
+                  <button
+                    onClick={calculateCO2}
+                    className="w-full bg-green-600 text-white py-4 rounded-lg font-semibold hover:bg-green-700 transition shadow-md"
                   >
-                    <option value="PET">PET (Plastic bottle)</option>
-                    <option value="HDPE">HDPE (Hard plastic)</option>
-                    <option value="Aluminum">Aluminum</option>
-                    <option value="Glass">Glass</option>
-                    <option value="Paper">Paper</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Жин (кг)</label>
-                  <input
-                    type="number"
-                    value={weight}
-                    onChange={(e) => setWeight(e.target.value)}
-                    placeholder="0"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  />
+                    🧮 Тооцоолох
+                  </button>
                 </div>
               </div>
-              <button
-                onClick={calculateCO2}
-                className="w-full mt-6 bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition"
-              >
-                Материал сонгон тооцоолох товчийг дарна уу
-              </button>
-              {co2Result && (
-                <div className="mt-6 text-center p-4 bg-green-50 rounded-lg border border-green-200">
-                  <div className="text-2xl font-bold text-green-700">{co2Result}</div>
-                  <div className="text-green-600">CO₂ хэмнэлт</div>
-                </div>
-              )}
+
+              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                <h3 className="text-lg font-semibold text-gray-900 mb-6">📊 Үр дүн</h3>
+                {co2Result ? (
+                  <div className="space-y-4">
+                    <div className="p-6 bg-green-50 rounded-lg border border-green-200 text-center">
+                      <div className="text-sm text-green-600 mb-1">Таны хэмнэсэн CO₂</div>
+                      <div className="text-4xl font-bold text-green-700">{co2Result}</div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="p-4 bg-blue-50 rounded-lg border border-blue-100 text-center">
+                        <div className="text-2xl">🌳</div>
+                        <div className="text-sm font-semibold text-blue-700">{(parseFloat(weight || '0') * 0.05).toFixed(1)} мод</div>
+                        <div className="text-xs text-blue-600">1 жилд тэнцэх</div>
+                      </div>
+                      <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-100 text-center">
+                        <div className="text-2xl">⚡</div>
+                        <div className="text-sm font-semibold text-yellow-700">{(parseFloat(weight || '0') * 1.2).toFixed(1)} кВт</div>
+                        <div className="text-xs text-yellow-600">Цахилгаан хэмнэлт</div>
+                      </div>
+                    </div>
+                    <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                      <div className="text-sm font-medium text-gray-700 mb-2">🌍 Эквивалент нөлөө:</div>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>🚗 {(parseFloat(weight || '0') * 4.5).toFixed(1)} км машин явсантай тэнцэх</li>
+                        <li>💡 {(parseFloat(weight || '0') * 50).toFixed(0)} цаг LED гэрэл асаасантай тэнцэх</li>
+                        <li>📱 {(parseFloat(weight || '0') * 200).toFixed(0)} удаа гар утас цэнэглэсэнтэй тэнцэх</li>
+                      </ul>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="h-full flex items-center justify-center">
+                    <div className="text-center text-gray-400">
+                      <div className="text-4xl mb-2">🧮</div>
+                      <p>Материал болон жингээ оруулна уу</p>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>
@@ -249,9 +293,13 @@ export default function Home() {
         <section id="leaderboard" className="py-20 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Тэргүүлэгчид</h2>
-              <p className="text-gray-600">Leaderboard</p>
-              <p className="text-gray-500 text-sm mt-2">Хамгийн их CO₂ хэмнэсэн хэрэглэгчид</p>
+              <div className="inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                🏆 Тэргүүлэгчид
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Leaderboard</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Хамгийн их CO₂ хэмнэсэн хэрэглэгчид. Та ч бас энэ жагсаалтад багтаж болно!
+              </p>
             </div>
             <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
               {leaderboard.map((user, idx) => (
@@ -279,6 +327,105 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Гарын авлага / Guide */}
+        <section id="guide" className="py-20">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="inline-block bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                📖 Гарын авлага
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Хэрхэн ашиглах вэ?</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                GreenLoop AI-г ашиглахад тань туслах дэлгэрэнгүй гарын авлага
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-xl mb-4">📝</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Бүртгэл үүсгэх</h3>
+                <p className="text-gray-600 text-sm">
+                  И-мэйл эсвэл Google акаунтаар хурдан бүртгүүл. Профайлдаа eco зорилгоо тав.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-xl mb-4">📸</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Материал бүртгүүлэх</h3>
+                <p className="text-gray-600 text-sm">
+                  Дахин боловсруулах материалаа зурагтаа, жингээ оруул. AI автоматаар төрөл таньж, CO₂ хэмнэлт тооцно.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition">
+                <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-xl mb-4">🗺️</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Pickup захиалах</h3>
+                <p className="text-gray-600 text-sm">
+                  Газрын зураг дээр хаягээ сонго, жолооч хэзээ ирэхийг хара. Real-time tracking хий.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition">
+                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-xl mb-4">🏅</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Оноо цуглуулах</h3>
+                <p className="text-gray-600 text-sm">
+                  Бүртгэл бүрт eco оноо ав. Badge, level-up, leaderboard-д эрэмбэлүүл.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition">
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-xl mb-4">🌳</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Мод тарих</h3>
+                <p className="text-gray-600 text-sm">
+                  Оноогоо мод тарих хандив болгон хөрвүүл. GPS-ээр тартсан модны байршлыг хара.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition">
+                <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-xl mb-4">📊</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Тайлан харах</h3>
+                <p className="text-gray-600 text-sm">
+                  ESG dashboard-аас нийт CO₂ хэмнэлт, хүлээн авсан материал, нөлөөг хара.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-green-50 rounded-xl p-8 border border-green-200">
+              <h3 className="text-xl font-semibold text-green-800 mb-4">💡 Зөвлөмж</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">✓</span>
+                    <span>Материалаа цэвэрлэж, ангилж бүртгүүлэх нь оноо илүү өгнө</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">✓</span>
+                    <span>7 хоног бүр бүртгэл хийвэл streak bonus оноо авна</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">✓</span>
+                    <span>Найзаа урихад хоёул оноо бонус авна</span>
+                  </li>
+                </ul>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">✓</span>
+                    <span>Бүлүүр (bulk) бүртгэл хийвэл илүү оноо</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">✓</span>
+                    <span>CSR компани оноогоо илүү хурдан цуглуулна</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">✓</span>
+                    <span>Эко түвшин 1000кг CO₂ хэмнэснээр Eco Legend болно</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
