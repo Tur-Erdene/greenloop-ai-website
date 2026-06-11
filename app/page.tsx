@@ -120,28 +120,28 @@ export default function Home() {
         </section>
 
         {/* CO₂ Calculator */}
-        <section id="calculator" className="py-20 bg-green-50">
+        <section id="calculator" className="py-20 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <div className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <div className="inline-block bg-emerald-500/20 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-emerald-500/30">
                 📊 Калькулятор
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">CO₂ Тооцоолуур</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold text-white mb-4">CO₂ Тооцоолуур</h2>
+              <p className="text-slate-300 max-w-2xl mx-auto">
                 Материал төрөл, жингээ оруулаад хэдэн кг CO₂ хэмнэснээ мэдэж, экологийн нөлөөгөө хар.
               </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
-                <h3 className="text-lg font-semibold text-gray-900 mb-6">🧮 Тооцоолох</h3>
+              <div className="bg-slate-800/50 backdrop-blur rounded-xl shadow-lg p-8 border border-slate-700">
+                <h3 className="text-lg font-semibold text-white mb-6">🧮 Тооцоолох</h3>
                 <div className="space-y-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Материал сонгох</label>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">Материал сонгох</label>
                     <select
                       value={material}
                       onChange={(e) => setMaterial(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white"
+                      className="w-full px-4 py-3 border border-slate-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-slate-700 text-white"
                     >
                       <option value="PET">🥤 PET лонх (Plastic bottle)</option>
                       <option value="HDPE">🧴 HDPE сав (Hard plastic)</option>
@@ -151,49 +151,49 @@ export default function Home() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Жин (кг)</label>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">Жин (кг)</label>
                     <input
                       type="number"
                       value={weight}
                       onChange={(e) => setWeight(e.target.value)}
                       placeholder="Жишээ: 2.5"
                       step="0.1"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-slate-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-slate-700 text-white placeholder-slate-400"
                     />
-                    <p className="text-xs text-gray-500 mt-1">1 кг = 1000 грамм. Жишээ: 2 кг PET лонх ≈ 67 ширхэг 500мл лонх</p>
+                    <p className="text-xs text-slate-400 mt-1">1 кг = 1000 грамм. Жишээ: 2 кг PET лонх ≈ 67 ширхэг 500мл лонх</p>
                   </div>
                   <button
                     onClick={calculateCO2}
-                    className="w-full bg-green-600 text-white py-4 rounded-lg font-semibold hover:bg-green-700 transition shadow-md"
+                    className="w-full bg-emerald-500 text-white py-4 rounded-lg font-semibold hover:bg-emerald-600 transition shadow-md"
                   >
                     🧮 Тооцоолох
                   </button>
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
-                <h3 className="text-lg font-semibold text-gray-900 mb-6">📊 Үр дүн</h3>
+              <div className="bg-slate-800/50 backdrop-blur rounded-xl shadow-lg p-8 border border-slate-700">
+                <h3 className="text-lg font-semibold text-white mb-6">📊 Үр дүн</h3>
                 {co2Result ? (
                   <div className="space-y-4">
-                    <div className="p-6 bg-green-50 rounded-lg border border-green-200 text-center">
-                      <div className="text-sm text-green-600 mb-1">Таны хэмнэсэн CO₂</div>
-                      <div className="text-4xl font-bold text-green-700">{co2Result}</div>
+                    <div className="p-6 bg-emerald-500/20 rounded-lg border border-emerald-500/30 text-center">
+                      <div className="text-sm text-emerald-400 mb-1">Таны хэмнэсэн CO₂</div>
+                      <div className="text-4xl font-bold text-emerald-400">{co2Result}</div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
-                      <div className="p-4 bg-blue-50 rounded-lg border border-blue-100 text-center">
+                      <div className="p-4 bg-blue-500/20 rounded-lg border border-blue-500/30 text-center">
                         <div className="text-2xl">🌳</div>
-                        <div className="text-sm font-semibold text-blue-700">{(parseFloat(weight || '0') * 0.05).toFixed(1)} мод</div>
-                        <div className="text-xs text-blue-600">1 жилд тэнцэх</div>
+                        <div className="text-sm font-semibold text-blue-400">{(parseFloat(weight || '0') * 0.05).toFixed(1)} мод</div>
+                        <div className="text-xs text-blue-300">1 жилд тэнцэх</div>
                       </div>
-                      <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-100 text-center">
+                      <div className="p-4 bg-yellow-500/20 rounded-lg border border-yellow-500/30 text-center">
                         <div className="text-2xl">⚡</div>
-                        <div className="text-sm font-semibold text-yellow-700">{(parseFloat(weight || '0') * 1.2).toFixed(1)} кВт</div>
-                        <div className="text-xs text-yellow-600">Цахилгаан хэмнэлт</div>
+                        <div className="text-sm font-semibold text-yellow-400">{(parseFloat(weight || '0') * 1.2).toFixed(1)} кВт</div>
+                        <div className="text-xs text-yellow-300">Цахилгаан хэмнэлт</div>
                       </div>
                     </div>
-                    <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
-                      <div className="text-sm font-medium text-gray-700 mb-2">🌍 Эквивалент нөлөө:</div>
-                      <ul className="text-sm text-gray-600 space-y-1">
+                    <div className="p-4 bg-slate-700/50 rounded-lg border border-slate-600">
+                      <div className="text-sm font-medium text-slate-200 mb-2">🌍 Эквивалент нөлөө:</div>
+                      <ul className="text-sm text-slate-300 space-y-1">
                         <li>🚗 {(parseFloat(weight || '0') * 4.5).toFixed(1)} км машин явсантай тэнцэх</li>
                         <li>💡 {(parseFloat(weight || '0') * 50).toFixed(0)} цаг LED гэрэл асаасантай тэнцэх</li>
                         <li>📱 {(parseFloat(weight || '0') * 200).toFixed(0)} удаа гар утас цэнэглэсэнтэй тэнцэх</li>
@@ -202,7 +202,7 @@ export default function Home() {
                   </div>
                 ) : (
                   <div className="h-full flex items-center justify-center">
-                    <div className="text-center text-gray-400">
+                    <div className="text-center text-slate-400">
                       <div className="text-4xl mb-2">🧮</div>
                       <p>Материал болон жингээ оруулна уу</p>
                     </div>
